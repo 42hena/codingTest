@@ -7,3 +7,4 @@ if N % 2 == 0:
 else:
     arr = [1, 2] * (N //2) + [3]
 print(*arr)
+# 여기선 *arr이 중요한듯
