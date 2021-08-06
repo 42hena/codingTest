@@ -6,7 +6,7 @@ currentChar = 0
 Sum = 0
 for i in range(len(Str)):
     for j in range(1, 14):
-        print(Alpha[ (currentChar + j) % 26], Alpha[ (currentChar - j) % 26])
+        # print(Alpha[ (currentChar + j) % 26], Alpha[ (currentChar - j) % 26])
         if Alpha[ (currentChar + j) % 26] == Str[i]:
             currentChar = (currentChar + j) % 26
             Sum += j
