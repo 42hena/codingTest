@@ -5,9 +5,7 @@ kind = []
 
 xCnt = 0
 i = 0
-while i < len(polyomino):
-    if polyomino[i] == 'X':
-        for j in range(i, len(polyomino)):
-
-    else:
+# while i < len(polyomino):
+#     if polyomino[i] == 'X':
+#         for j in range(i, len(polyomino)):
         
