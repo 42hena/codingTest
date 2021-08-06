@@ -1,3 +1,4 @@
+#fail
 n, W = map(int, input().split())
 
 day_information = []
