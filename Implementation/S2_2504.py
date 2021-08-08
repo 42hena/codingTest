@@ -3,7 +3,14 @@
 string = input()
 
 stack = []
-ans = 0
+
+if string[0] == ')':
+    print("0")
+    exit()
+if string[0] == ']':
+    print("0")
+    exit()
+#처음 에러 삭제
 
 for i in range(len(string)):
     tmpsum = 0
@@ -15,7 +22,7 @@ for i in range(len(string)):
         while True:
             tmp = stack.pop()
             if tmp == "[": #에러
-                print("닥쳐")
+                print("0")
                 exit()
             elif tmp == "(": #정상
                 if tmpsum == 0:
@@ -29,7 +36,7 @@ for i in range(len(string)):
         while True:
             tmp = stack.pop()
             if tmp == "(": #에러
-                print("닥쳐")
+                print("0")
                 exit()
             elif tmp == "[": #정상
                 if tmpsum == 0:
@@ -39,4 +46,15 @@ for i in range(len(string)):
                 break
             else:            #정상
                 tmpsum += tmp
-print(sum(stack))
+ans = 0
+while len(stack) != 0:
+    tmp = stack.pop()
+    if tmp == '(':
+        print("0")
+        exit()
+    elif tmp == '[':
+        print("0")
+        exit()
+    else:
+        ans += tmp
+print(ans)
