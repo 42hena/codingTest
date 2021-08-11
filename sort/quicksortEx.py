@@ -4,37 +4,32 @@
 # 가장 기본적인 퀵 정렬은 첫 번째 데이터를 기준 데이터(Pivot)로 설정합니다.
 
 def quicksort(array , start, end):
-    if start == end:
-        return 0
+    print("s")
+    if start >= end:
+        return
     pivot = start
-    start = pivot + 1
-    i, j = start, end
+    i = start + 1
+    j = end
 
-    print("i, j", i, j)
-    while True:
-        while array[i] < array[pivot] and i < j:
+    while i <= j:
+        while i <= end and array[i] <= array[pivot]:
             i += 1
-        while array[j] > array[pivot] and i < j:
+        while start < j and array[j] >= array[pivot]:
             j -= 1
+        
         if i > j:
-            break
+            array[j], array[pivot] = array[pivot], array[j]
+        else:
+            array[i], array[j] = array[j], array[i]
         # print("i, j", i, j)
-        array[i], array[j] = array[j], array[i]
-
-    # print("pivot", j)
-    # if array[pivot] > array[j]:
-    #     array[pivot], array[j] = array[j], array[pivot]
-    #     quicksort(array, 0, j - 1)
-    #     quicksort(array, (j + 1), end)
-    # else:
-    #     quicksort(array, (j + 1), end)
-    print("test",array)
+    quicksort(array, start, j - 1)
+    quicksort(array, (j + 1), end)    
     
     
 
 array = [5, 7, 9, 0, 3, 1, 6, 2, 4, 8]
 # array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-print(array)
+
 
 quicksort(array, 0, len(array) - 1)
 print(array)
