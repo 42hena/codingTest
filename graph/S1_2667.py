@@ -42,5 +42,6 @@ for i in range(N):
             arr.append(cnt)
             home += 1
 print(home)
+arr.sort()
 for i in range(len(arr)):
     print(arr[i])
