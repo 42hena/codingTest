@@ -10,11 +10,11 @@ print(arr)
 while i != j:
     # print(i, j)
     add = abs(arr[i] + arr[j] - K)
-    if  add < min :
+    if  add < min:
         min = add
         x = i
         y = j
-    if arr[i] + arr[j] - K > 0:
+    if arr[i] + arr[j] > K:
         j -= 1
     else:
         i += 1
@@ -31,3 +31,4 @@ while i != j:
     else:
         i += 1
 print(count)
+
