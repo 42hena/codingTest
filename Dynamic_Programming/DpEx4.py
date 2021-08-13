@@ -1,3 +1,4 @@
+# 금광: 문제 설명
 # n x m 크기의 금광이 있습니다. 
 # 금광은 1 x 1 크기의 칸으로 나누어져 있으며, 각 칸은 특정한 크기의 금이 들어있습니다
 
@@ -7,8 +8,10 @@
 
 
 for tc in range(int(input())):
+    # 금광 정보 입력
     n, m = map(int, input().split())
-    array = []
+    array = list(map(int, input().split()))
+    # 다이나믹 프로그래밍을 위한 2차원 DP 테이블 초기화
     dp = []
     index = 0
     for i in range(n):
@@ -16,7 +19,6 @@ for tc in range(int(input())):
         index += m
 
     # 다이나믹 프로그래밍 진행
-
     for j in range(1, m):
         for i in range(n):
             # 왼쪽 위에서 오는 경우
