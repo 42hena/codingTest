@@ -6,9 +6,9 @@ i = 0
 j = N - 1
 min = 2000000000
 arr.sort()
-print(arr)
+# print(arr)
 while i != j:
-    print(i, j)
+    # print(i, j)
     add = abs(arr[i] + arr[j])
     if  add < min:
         min = add
