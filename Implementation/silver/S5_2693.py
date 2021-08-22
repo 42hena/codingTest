@@ -1,3 +1,4 @@
+# S5_2693 N번째 큰 수
 import sys
 
 input = sys.stdin.readline

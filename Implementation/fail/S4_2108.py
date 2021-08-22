@@ -30,5 +30,9 @@ while i < N - 1:
             else:
                 break
     i += 1
-print(min(cnt))
+
+# for i in range(N):
+#     if cnt[i] == min(cnt):
+        
+
 print(array[N - 1] - array[0])
