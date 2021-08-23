@@ -1,6 +1,7 @@
 import math
 X = int(input())
-N = (-1 + math.sqrt(1 + 8*X))/2
+N = (-1 + math.sqrt(1 + 8 * (1-X))/2)
+print(N)
 print(X - N*(N + 1) // 2)
 # print(X*(X+1)//2)
 # dx = [1, -1, 0, 1]
