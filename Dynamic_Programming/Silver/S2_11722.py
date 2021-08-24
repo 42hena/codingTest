@@ -7,3 +7,5 @@ for i in range(N):
         if array[j] > array[i]:
             dp[i] = max(dp[i], dp[j] + 1)
 print(max(dp))
+
+# print(dp[N - 1]) 반례가 뭘까
