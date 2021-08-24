@@ -14,3 +14,5 @@ def fibo(x):
     return d[x]
 
 print(fibo(99))
+
+# 실행 결과 218922995834555169026

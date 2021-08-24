@@ -1,5 +1,5 @@
 d = [0] * 100
-# 시간 복잡도는 O(N)
+
 def fibo(x):
     print(f"f({str(x)})", end=" ")
     if x == 1 or x == 2:
@@ -9,3 +9,5 @@ def fibo(x):
     d[x] = fibo(x - 1) + fibo(x - 2)
     return d[x]
 fibo(6)
+
+# 실행결과 f(6) f(5) f(4) f(3) f(2) f(1) f(2) f(3) f(4)
