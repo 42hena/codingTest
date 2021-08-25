@@ -15,7 +15,7 @@ for i in range(4, 100001):
     dp[3][i] = (dp[1][i - 3] + dp[2][i - 3]) % 1000000009
 for _ in range(int(input())):
     n = int(input())
-    print(dp[1][n] + dp[2][n] + dp[3][n])
+    print( (dp[1][n] + dp[2][n] + dp[3][n]) % 1000000009 )
 # print(dp)
 # for i in range(4):
 #     for j in range(n+1):
