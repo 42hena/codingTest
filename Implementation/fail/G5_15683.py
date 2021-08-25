@@ -8,7 +8,6 @@ for i in range(N):
 print(graph)
 
 def func1(graph, i, j):
-    
     while True:
         j += 1
         if graph[i][j] == 6:
@@ -16,7 +15,15 @@ def func1(graph, i, j):
         if j >= M:
             return 
         graph[i][j] = '#'
-        
+
+def func2(graph, i, j):
+    while True:
+        j -= 1
+        if graph[i][j] == 6:
+            return
+        if j < 0:
+            return 
+        graph[i][j] = '#'
 
 for i in range(N):
     for j in range(M):
