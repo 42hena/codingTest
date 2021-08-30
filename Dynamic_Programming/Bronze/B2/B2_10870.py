@@ -9,15 +9,16 @@
 n = int(input())
 
 # dp테이블 생성
-dp = [0] * 21
+dp = [0] * (n + 1)
+if n > 0:
+    dp[1] = 1
 
-# 2번 째 값 초기화
-dp[1] = 1
-
+# dp 계산
 for i in range(2, n + 1):
     dp[i] = dp[i - 1] + dp[i - 2]
 
+# 출력
 print(dp[n])
 
 # comment
-# 굳이 dp테이블을 n+1개 생성하지 말기 (햇갈림)
+# X
