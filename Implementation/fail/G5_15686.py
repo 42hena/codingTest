@@ -13,18 +13,18 @@ for row in range(N):
         elif graph[row][col] == 2:
             chicks.append((row + 1, col + 1))
 
-for chick in chicks:
+print("chick", chicks)
+print("house:",houses)
+for house in houses:        
+   
+
     min_val = 101
     sum = 0
-    for house in houses:    
+    print(house[0], house[1])
+    for chick in chicks:    
+
         d = abs(house[0] - chick[0]) + abs(house[1] - chick[1])
-        # if d < min_val:
-        #     min_val = d
         print(d, end=" ")
-    
         sum += d
-    # print(min_val, end=" ")
     print("sum=",sum, end="")
     print()
-
-# print(houses, chicks)

@@ -1,44 +1,42 @@
+import sys
+input = sys.stdin.readline
+
 N = int(input())
-num = list(int(input()) for _ in range(N))
-# print(num)
-num.sort()
+Sum = 0
+plus = []
+minus = []
+for _ in range(N):
+    value = int(input())
+    if value > 0:
+        if value == 1:
+            Sum += 1
+        else:
+        # heapq.heappush(plus, (-value, value))
+            plus.append(value)
+    else:
+        # heapq.heappush(minus, value)
+        minus.append(value)
 
-mindex = -1
-pindex = -1
+plus.sort(reverse=True)
+minus.sort()
 
-for i in range(N):
-    if num[i] < 0:
-        mindex = i
-    elif num[i] > 0:
-        pindex = i 
-        break
-# print(num)
-if mindex!= -1:
-    minus = num[0:mindex + 1]
+
+
+plus_len = len(plus)
+if plus_len % 2 == 0:
+    for i in range(0, plus_len, 2):
+        Sum += plus[i] * plus[i + 1]
 else:
-    minus = []
-if pindex!= -1:
-    plus = num[pindex:N]
+    for i in range(0, plus_len - 1, 2):
+        Sum += plus[i] * plus[i + 1]
+    Sum += plus[plus_len - 1]
+    
+minus_len = len(minus)
+if minus_len % 2 == 0:
+    for i in range(0, minus_len, 2):
+        Sum += minus[i] * minus[i + 1]
 else:
-    plus = []
-# print(minus, plus)
-# print(len(minus), len(plus))
-# print(mindex,pindex)
-sum = 0
-if len(minus) % 2 != 0:
-    sum += minus.pop(mindex)
-while len(minus) != 0:
-    first = minus.pop(0)
-    second = minus.pop(0)
-    sum += first * second
-# print("minussum",sum)
-
-if len(plus) % 2 != 0 :
-    sum += plus.pop(0)
-
-while len(plus) != 0:
-    first = plus.pop(0)
-    second = plus.pop(0)
-    sum += first * second
-print(sum)
-
+    for i in range(0, minus_len - 1, 2):
+        Sum += minus[i] * minus[i + 1]
+    Sum += minus[minus_len - 1]
+print(Sum)
