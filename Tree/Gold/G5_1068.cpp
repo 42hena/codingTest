@@ -1,4 +1,4 @@
-//https://www.acmicpc.net/problem/10828
+//https://www.acmicpc.net/problem/1068
 #include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
