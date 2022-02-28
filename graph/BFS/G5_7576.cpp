@@ -10,7 +10,7 @@ int dx[] = {1, -1, 0, 0};
 int dy[] = {0, 0, 1, -1};
 int m, n;
 int maxValue = 1;
-void breathFirstSearch()
+void breadthFirstSearch()
 {
     queue<Data> q;
     for (int i = 0 ; i < pos.size() ; ++i)
@@ -50,5 +50,5 @@ int main()
                 pos.push_back({i, j});
         }
     
-    breathFirstSearch();
+    breadthFirstSearch();
 }
