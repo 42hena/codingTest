@@ -16,7 +16,7 @@ def BFS(x, y, count):
     visited[x][y] = True
     while queue:
         x, y = queue.popleft()
-        print("test", x, y)
+        # print("test", x, y)
         count+=1
         for i in range(4):
             nx = x + dx[i]
@@ -28,7 +28,7 @@ def BFS(x, y, count):
                 visited[nx][ny] = True
                 queue.append([nx,ny])
                 
-    print(count)
+    # print(count)
     if S < count:
         S = count
 

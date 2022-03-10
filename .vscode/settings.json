@@ -1,0 +1,25 @@
+{
+    "files.associations": {
+        "deque": "cpp",
+        "queue": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp",
+        "string": "cpp",
+        "utility": "cpp",
+        "initializer_list": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp",
+        "algorithm": "cpp",
+        "stack": "cpp",
+        "type_traits": "cpp",
+        "xlocale": "cpp",
+        "limits": "cpp",
+        "xiosbase": "cpp",
+        "xlocinfo": "cpp",
+        "xstddef": "cpp",
+        "system_error": "cpp",
+        "cstdlib": "cpp",
+        "iterator": "cpp",
+        "xmemory": "cpp"
+    }
+}
