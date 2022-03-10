@@ -11,10 +11,10 @@ int main()
         v[i] += v[i-1];
     }
     int maxValue = 0;
-    for (int i = 0  ; i < n - x ; ++i)
+    for (int i = 0  ; i <= n - x ; ++i)
         maxValue = max(maxValue, v[i + x] - v[i]);
     int cnt = 0;
-    for (int i = 0  ; i < n - x ; ++i)
+    for (int i = 0  ; i <= n - x ; ++i)
         if (maxValue == v[i + x] - v[i])
             cnt++;
     if (maxValue == 0)
