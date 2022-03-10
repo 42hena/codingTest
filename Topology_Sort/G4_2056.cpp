@@ -32,7 +32,6 @@ int main()
         {
             q.push(i);
             times[i] = timeValue[i]; 
-            visited[i] = true;
         }
 
     while (!q.empty())   
@@ -44,14 +43,10 @@ int main()
             int next = graph[now][i];
             
             cache[next]--;
+            if (!cache[next])
+                q.push(next);
             times[next] = max(times[now] + timeValue[next], times[next]);
         }
-        for (int i = 1 ; i <= n ; ++i)
-            if (!cache[i] && !visited[i])
-            {
-                q.push(i);
-                visited[i] = true;
-            }
     }
     int ans = 0;
     for (int i = 1 ; i <= n ; ++i)
