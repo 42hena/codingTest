@@ -19,7 +19,7 @@ int dist[500];
 bool visited[500];
 
 void init() {
-    memset(graph, 0, sizeof(gragh));
+    memset(graph, 0, sizeof(graph));
     memset(trace, 0, sizeof(trace));
     memset(dist, 127, sizeof(dist));
     memset(visited, false, sizeof(visited));
