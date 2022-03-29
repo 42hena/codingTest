@@ -81,41 +81,6 @@ struct Edge
         return cost < copy.cost;
     }
 };
-bool check()
-{
-    int count = 0;
-    queue<pair<int, int>> q;
-    memset(moveCount, -1, sizeof(moveCount));
-    moveCount[sy][sx] = 0;
-    q.push({sy, sx});
-    // cout << "start num:" << start->second << '\n';
-    while (!q.empty())
-    {
-        int y = q.front().first;
-        int x = q.front().second;
-        
-        int move = moveCount[y][x];
-        q.pop();
-        if (board[y][x] == 'K')
-        {
-            count++;
-        }
-        
-
-        FOR(i, 4)
-        {
-            int ny = y + dy[i];
-            int nx = x + dx[i];
-            if (board[ny][nx] == '1' || moveCount[ny][nx] != -1)   continue;
-            
-            moveCount[ny][nx] = moveCount[y][x] + 1;
-            q.push({ny, nx});
-        }
-    }
-    if (count  == m)
-        return true;
-    return false;
-}
 
 void solution()
 {
@@ -144,8 +109,6 @@ void solution()
                         auto iter = dict.find({y, x});
                         v.push_back({iter->second, start->second, move});
                     }
-                    
-
                     FOR(i, 4)
                     {
                         int ny = y + dy[i];
@@ -166,15 +129,17 @@ void solution()
     FOR(i, m + 1)
         arr[i] = i;
     int sum = 0;
+    int edgeCount = 0;
     for (int i = 0 ; i < v.size() ; ++i)
     {
         if (!same(v[i].node1, v[i].node2))
         {
+            edgeCount++;
             sum += v[i].cost;
             unionParent(v[i].node1, v[i].node2);
         }
     }
-    if (sum)
+    if (edgeCount == m)
         cout << sum;
     else
         cout << -1;
@@ -183,10 +148,5 @@ void solution()
 int main()
 {
     input();
-    if (!check())
-    {
-        cout << -1;
-        return 0;
-    }
     solution();
 }
