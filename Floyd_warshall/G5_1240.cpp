@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define MAX 10001
+#define MAX 1001
 #define INF 1e9
 int cost[MAX][MAX];
 
