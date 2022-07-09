@@ -1,61 +1,49 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-struct Jewels
-{
-    int weight;
-    int price;
-    Jewels(int weight, int price) : weight(weight), price(price)
-    {
+// [n : 보석의 수]
+// [k : 가방의 수]
+// [Mi : 보석의 무게]
+// [Vi : 보석의 가격]
+// [Ci : 최대 무게]
 
-    }
-    bool operator<(const struct Jewels &copy) const
-    {
-        if (weight == copy.weight)
-            return price < copy.price;
-        else
-            return weight > copy.weight;
-    }
-};
 int n, k;
-int m, v;
-int c;
-int main()
+vector<pair<int, int>> jewels;
+vector<int> bags;
+int main(void)
 {
     cin >> n >> k;
-    vector<pair<int, int>> jewel;
-    
+    int m, v;
     for (int i = 0 ; i < n ; ++i)
     {
         cin >> m >> v;
-        jewel.push_back({m, v});
+        jewels.push_back(make_pair(m, v));
     }
-    sort(jewel.begin(), jewel.end());
+    sort(jewels.begin(), jewels.end());
 
-    vector<int> bag;
+    int c;
     for (int i = 0 ; i < k ; ++i)
     {
         cin >> c;
-        bag.push_back(c);
+        bags.push_back(c);
     }
-    sort(bag.begin(), bag.end());
+    sort(bags.begin(), bags.end());
 
     priority_queue<int> pq;
-    int index = 0;
-    long long ans = 0;
+    long long jewelTotalPrice = 0;
+    int index= 0 ;
     for (int i = 0 ; i < k ; ++i)
     {
-        while (index < n && jewel[index].first <= bag[i])
+        while (index < n && jewels[index].first <= bags[i])
         {
-            pq.push(jewel[index].second);
+            pq.push(jewels[index].second);
             index++;
         }
         if (!pq.empty())
         {
-            ans += pq.top();
+            jewelTotalPrice += pq.top();
             pq.pop();
         }
     }
-    cout << ans;
+    cout << jewelTotalPrice;
 }
