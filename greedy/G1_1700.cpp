@@ -1,68 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int multitap[100];
-int main()
+// [n : 멀티탭 구멍의 개수]
+// [k : 전기 용품의 총 사용횟수]
+int n, k;
+int main(void)
 {
-    int ans = 0;
-    int n, k;
     cin >> n >> k;
     vector<int> schedule(k);
     for (int i = 0 ; i < k ; ++i)
-        cin >> schedule[i];
-    
-    for (int i = 0 ; i < k ; ++i) // 스케줄
     {
-        bool exist = false;
-        for (int j = 0 ; j < n ; ++j) //멀티텝
+        cin >> schedule[i];
+    }
+
+    set<int> multitap;
+    int ans = 0;
+    for (int i = 0 ; i < k ; ++i)
+    {
+        if (multitap.size() < n)
         {
-            if (schedule[i] == multitap[j]) // 같다면 갈아줄 필요 x
-            {
-                exist = true;
-                break;
-            }
+            multitap.insert(schedule[i]);
         }
-        if (exist)
-            continue;
-        bool in = false;
-        for (int j = 0 ; j < n ; ++j) //멀티텝
+        else
         {
-            if (!multitap[j])
+            if (multitap.find(schedule[i]) != multitap.end())
+                continue ;
+            vector<pair<int, int>> v;
+            for (auto value : multitap)
             {
-                multitap[j] = schedule[i];
-                in = true;
-                break;
-            }
-        }
-        if (in)
-            continue;
-        int maxValue = 0;
-        int maxIndex = 0;
-        
-        for (int j = 0 ; j < n ; ++j) //멀티텝
-        {
-            bool check = false;
-            for (int a = i + 1 ; a < k ; ++a)
-            {
-                if (multitap[j] == schedule[a])
+                int maxValue = 101;
+                for (int j = i + 1 ; j < k ; ++j)
                 {
-                    check = true;
-                    if (maxValue < a - i)
+                    if (value == schedule[j])
                     {
-                        maxValue = a - i;
-                        maxIndex = j;
+                        maxValue = j-i;
+                        break ;
                     }
-                    break;
                 }
+                v.push_back({maxValue, value});
             }
-            if (!check)
-            {
-                maxValue = 100;
-                maxIndex = j;
-            }
+            sort(v.begin(), v.end(), greater<>());
+            int delValue = v[0].second;
+            multitap.erase(delValue);
+            multitap.insert(schedule[i]);
+            ans++;
         }
-        multitap[maxIndex] = schedule[i];
-        ans++;
     }
     cout << ans;
 }
