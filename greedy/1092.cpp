@@ -23,9 +23,9 @@ int main()
     }
     
     sort(crains.begin(), crains.end(), greater<>());
-    sort(boxes.begin(), boxes.end(), greater<>());
+    sort(boxes.begin(), boxes.end());
     
-    if (crains[0] < boxes[0])
+    if (crains[0] < boxes[boxes.size() - 1])
     {
         cout << -1;
         exit(0);
@@ -37,16 +37,20 @@ int main()
         bool flag = false;
         for (int i = 0 ; i < crains.size() ; ++i)
         {
+            
             if (boxes.size())
             {
-                for (int j = 0 ; j < boxes.size() ; ++j)
-                {
-                    if (crains[i] >= boxes[j])
-                    {
-                        boxes.erase(boxes.begin() + j);
-                        break ;
-                    }
-                }
+                int index = upper_bound(boxes.begin(), boxes.end(), crains[i]) - boxes.begin();
+                // cout << i << ' ' << crains[i] << ' ' << index << '\n';
+                if (index - 1 < 0)
+                    continue;
+                // cout << "now value: " << *(boxes.begin() + index - 1) << '\n';
+                
+                int delValue = *(boxes.begin() + index - 1);
+                if (crains[i] < delValue)
+                    continue;
+                else
+                    boxes.erase(boxes.begin() + index - 1);
             }
             else
             {
