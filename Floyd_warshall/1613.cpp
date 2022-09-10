@@ -17,6 +17,8 @@ void InitCostArray()
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
     cin >> n >> k;
     InitCostArray();
     
@@ -35,14 +37,14 @@ int main()
             }
     }
 
-    for (int i = 1 ; i < n + 1 ; ++i)
-    {
-        for (int j = 1 ; j < n + 1 ; ++j)
-        {
-            printf(" %9d", cost[i][j]);
-        }
-        printf("\n");
-    }
+    // for (int i = 1 ; i < n + 1 ; ++i)
+    // {
+    //     for (int j = 1 ; j < n + 1 ; ++j)
+    //     {
+    //         printf(" %9d", cost[i][j]);
+    //     }
+    //     printf("\n");
+    // }
     int s;
     cin >> s;
     for (int i = 0 ; i < s ; ++i)
